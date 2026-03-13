@@ -1,0 +1,229 @@
+{
+  "id": "insforge-onboarding",
+  "title": "InsForge: Backend-as-a-Service for AI Agents",
+  "description": "A guided tour of InsForge, an open-source BaaS platform that provides AI coding agents with authentication, database, storage, edge functions, and more.",
+  "version": "1.0.0",
+  "steps": [
+    {
+      "id": "overview",
+      "title": "Welcome to InsForge",
+      "description": "InsForge is a monorepo Backend-as-a-Service platform built for AI coding agents and editors. It provides a semantic layer between AI agents and backend primitives — auth, PostgreSQL, S3 storage, serverless functions, and an LLM model gateway. The codebase is organized as npm workspaces: backend, frontend, auth, shared-schemas, and ui.",
+      "colorMode": "fileTypes",
+      "focusDirectory": ""
+    },
+    {
+      "id": "backend-core",
+      "title": "Backend API Server",
+      "description": "The Express.js backend is the heart of InsForge. It starts from server.ts and is organized by feature — 16 route modules handle auth, database, storage, functions, AI, realtime, and more. Services follow a singleton pattern with dependency injection.",
+      "focusDirectory": "backend/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "backend-entry",
+          "name": "Server Entry Point",
+          "color": "#ef4444",
+          "items": [
+            { "path": "backend/src/server.ts", "type": "file" }
+          ],
+          "opacity": 0.8,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "backend-routes",
+          "name": "API Routes",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "backend/src/api/routes", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "backend-services",
+          "name": "Business Logic Services",
+          "color": "#22c55e",
+          "items": [
+            { "path": "backend/src/services", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "backend-infrastructure",
+      "title": "Infrastructure & Providers",
+      "description": "The backend separates infrastructure concerns into two layers. The 'infra' directory handles database connections, socket management, realtime engines, and configuration. The 'providers' directory abstracts external services — storage backends, OAuth providers, and database drivers — making them swappable.",
+      "focusDirectory": "backend/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "infra-layer",
+          "name": "Infrastructure (DB, Sockets, Config)",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "backend/src/infra", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "providers-layer",
+          "name": "Providers (Storage, OAuth, DB Drivers)",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "backend/src/providers", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "middleware-layer",
+          "name": "Express Middleware",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "backend/src/api/middlewares", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "frontend-dashboard",
+      "title": "Frontend Admin Dashboard",
+      "description": "The React 19 frontend is the admin dashboard for managing InsForge projects. Built with Vite, Tailwind CSS 4, and Radix UI, it uses a feature-driven architecture. Each feature module (AI, Database, Storage, Functions, etc.) mirrors a backend capability. TanStack Query handles server state, and Socket.io provides real-time updates.",
+      "focusDirectory": "frontend/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "frontend-features",
+          "name": "Feature Modules",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "frontend/src/features", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "frontend-lib",
+          "name": "Hooks, Contexts & Utilities",
+          "color": "#22c55e",
+          "items": [
+            { "path": "frontend/src/lib", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "frontend-components",
+          "name": "Shared Components",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "frontend/src/components", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "shared-type-safety",
+      "title": "Shared Schemas & UI Library",
+      "description": "Type safety across the stack is enforced through shared-schemas — Zod schemas that serve as the single source of truth for all API models, request/response shapes, and domain types. The ui package provides a Radix UI-based component library with Tailwind presets shared by both the frontend dashboard and the auth app.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "schemas",
+          "name": "Shared Zod Schemas",
+          "color": "#ec4899",
+          "items": [
+            { "path": "shared-schemas", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "ui-lib",
+          "name": "UI Component Library",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "ui", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "auth-app",
+          "name": "Auth UI App",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "auth", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "deployment-config",
+      "title": "Deployment & Configuration",
+      "description": "InsForge uses Docker multi-stage builds for production and docker-compose for development. The deploy directory contains platform-specific configs for Railway, Zeabur, and cloud providers. CI/CD runs through GitHub Actions. The project supports PostgreSQL, PostgREST for auto-REST APIs, and Deno for edge functions.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "docker",
+          "name": "Docker Configuration",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "Dockerfile", "type": "file" },
+            { "path": "docker-compose.yml", "type": "file" }
+          ],
+          "opacity": 0.8,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "deploy-dir",
+          "name": "Deployment Scripts",
+          "color": "#22c55e",
+          "items": [
+            { "path": "deploy", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "ci-cd",
+          "name": "CI/CD Workflows",
+          "color": "#f59e0b",
+          "items": [
+            { "path": ".github", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "docs-examples",
+          "name": "Docs & Examples",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "docs", "type": "directory" },
+            { "path": "examples", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "full-picture",
+      "title": "The Full Picture",
+      "description": "InsForge brings together a TypeScript monorepo with five workspaces: the Express backend (port 7130), React dashboard (7131), auth UI (7132), shared Zod schemas, and a Radix UI library. It's a complete BaaS platform purpose-built for AI agents — giving them structured access to databases, storage, auth, serverless functions, and LLM gateways.",
+      "focusDirectory": "",
+      "colorMode": "fileTypes"
+    }
+  ]
+}
