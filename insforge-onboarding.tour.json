@@ -7,14 +7,14 @@
     {
       "id": "overview",
       "title": "Welcome to InsForge",
-      "description": "InsForge is a monorepo Backend-as-a-Service platform built for AI coding agents and editors. It provides a semantic layer between AI agents and backend primitives — auth, PostgreSQL, S3 storage, serverless functions, and an LLM model gateway. The codebase is organized as npm workspaces: backend, frontend, auth, shared-schemas, and ui.",
+      "description": "InsForge is a monorepo Backend-as-a-Service platform built for AI coding agents and editors. It provides a semantic layer between AI agents and backend primitives, including auth, PostgreSQL, S3 storage, serverless functions, and an LLM model gateway. The codebase is organized as npm workspaces: backend, frontend, auth, shared-schemas, and ui.",
       "colorMode": "fileTypes",
       "focusDirectory": ""
     },
     {
       "id": "backend-core",
       "title": "Backend API Server",
-      "description": "The Express.js backend is the heart of InsForge. It starts from server.ts and is organized by feature — 16 route modules handle auth, database, storage, functions, AI, realtime, and more. Services follow a singleton pattern with dependency injection.",
+      "description": "The Express.js backend is the heart of InsForge. It starts from server.ts and is organized by feature. 16 route modules handle auth, database, storage, functions, AI, realtime, and more. Services follow a singleton pattern with dependency injection.",
       "focusDirectory": "backend/src",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -53,7 +53,7 @@
     {
       "id": "backend-infrastructure",
       "title": "Infrastructure & Providers",
-      "description": "The backend separates infrastructure concerns into two layers. The 'infra' directory handles database connections, socket management, realtime engines, and configuration. The 'providers' directory abstracts external services — storage backends, OAuth providers, and database drivers — making them swappable.",
+      "description": "The backend separates infrastructure concerns into two layers. The 'infra' directory handles database connections, socket management, realtime engines, and configuration. The 'providers' directory abstracts external services like storage backends, OAuth providers, and database drivers, making them swappable.",
       "focusDirectory": "backend/src",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -131,7 +131,7 @@
     {
       "id": "shared-type-safety",
       "title": "Shared Schemas & UI Library",
-      "description": "Type safety across the stack is enforced through shared-schemas — Zod schemas that serve as the single source of truth for all API models, request/response shapes, and domain types. The ui package provides a Radix UI-based component library with Tailwind presets shared by both the frontend dashboard and the auth app.",
+      "description": "Type safety across the stack is enforced through shared-schemas. These are Zod schemas that serve as the single source of truth for all API models, request/response shapes, and domain types. The ui package provides a Radix UI-based component library with Tailwind presets shared by both the frontend dashboard and the auth app.",
       "focusDirectory": "",
       "colorMode": "fileTypes",
       "highlightLayers": [
@@ -221,7 +221,7 @@
     {
       "id": "full-picture",
       "title": "The Full Picture",
-      "description": "InsForge brings together a TypeScript monorepo with five workspaces: the Express backend (port 7130), React dashboard (7131), auth UI (7132), shared Zod schemas, and a Radix UI library. It's a complete BaaS platform purpose-built for AI agents — giving them structured access to databases, storage, auth, serverless functions, and LLM gateways.",
+      "description": "InsForge brings together a TypeScript monorepo with five workspaces: the Express backend on port 7130, React dashboard on 7131, auth UI on 7132, shared Zod schemas, and a Radix UI library. It is a complete BaaS platform purpose-built for AI agents, giving them structured access to databases, storage, auth, serverless functions, and LLM gateways.",
       "focusDirectory": "",
       "colorMode": "fileTypes"
     }
